@@ -1,0 +1,5 @@
+Lect: 2
+npm i -D parcel => parcel is getting installed as Dev dependency
+parcel has dependencies => its dependencies has their own dependencies => transitive dependencies
+dependency vs dev dependency ?
+

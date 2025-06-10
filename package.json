@@ -1,0 +1,28 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shriyansh2305/NamasteReact.git"
+  },
+  "author": "Shriyansh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shriyansh2305/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/shriyansh2305/NamasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
