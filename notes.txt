@@ -15,5 +15,20 @@ React.createElement() => React Element which is an Object => on rendering => HTM
 JSX is transpiled before it reaches the JS engine -> done by Parcel using Babel
 JSX => converted to react.createElement by Babel=> React Element which is an Object => on rendering => HTML Element
 try to explore different attributes for JSX as compared to html
+putting one component inside other is called component composition
+React component is a JS function whish returns some JSX code.
+Instead of arrow function, we can also write normal fucntions, but we shall using arrow.
+we can inject any JS code inside JSx using {}
+All three are same: 
+    <Title />
+    <Title></Title>
+    {Title()}
+We can put react-element inside react-component, react-component inside another react-component, reacct-compoenent inside react-element using {}
+JSX sanitizes the JS which we are trying to inject using {}, and hence prevents from Cross-Side Scripting Attack
+React is JS
+Functional Components are JS fucntions
+JSX is react.createElement 
+react.createElement is Object 
+
 
 
