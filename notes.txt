@@ -3,3 +3,17 @@ npm i -D parcel => parcel is getting installed as Dev dependency
 parcel has dependencies => its dependencies has their own dependencies => transitive dependencies
 dependency vs dev dependency ?
 
+Lect: 3
+npm run start === npm start
+npm run build !== npm build
+only start keyword is reserved like that
+using React.createElement is not friendly, so JSX was introduced
+JSX is not html inside jsvascript
+JSX is totally different, it has HTML-like or XML-like syntax
+It is totally different syntax
+React.createElement() => React Element which is an Object => on rendering => HTML Element
+JSX is transpiled before it reaches the JS engine -> done by Parcel using Babel
+JSX => converted to react.createElement by Babel=> React Element which is an Object => on rendering => HTML Element
+try to explore different attributes for JSX as compared to html
+
+
