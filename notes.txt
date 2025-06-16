@@ -56,6 +56,19 @@ Two types of exprt and import : Named-export and default export
 
 Can I do mix-export and imports ? 
 
+Using React, we want to sync the data and UI.
+React Hooks: Normal JS utility functions, written by facebook developers
+- useStae() : Super powerful state variables
+            : Whenever a state variable updates, React re-renders the component
+            : All three are same: 
+                const [listOfRestaurants, setListOfRestaurants] = useState(resList)
+                const arr = useState(resList)
+                const [listOfRestaurants, setListOfRestaurants] = arr;
+                const listOfRestaurants = arr[0];
+                const setListOfRestaurants = arr[1];
+- useEffect() : 
+
+React uses React-Fiber(Reconciliatio) algorithm to easily maintain a virtual DOM(an object representation of actual DOM), finds the diff and then changes the actual DOM very efficiently.
 
 
 
