@@ -19,3 +19,21 @@
 - HTTPS
 - Tree Shaking: remove unused code
 - Different den and prod bundles
+
+# Namaste Food
+/* 
+Header
+  - Logo
+  - Nav Items
+Body
+  - Search
+  - RestaurantContainer
+    - RestaurandCards
+      - Image
+      - Restaurant Name, Rating, quisine
+Footer
+  - Copyright
+  - Links
+  - Address
+  - Contact
+*/

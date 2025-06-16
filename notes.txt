@@ -44,4 +44,18 @@ React wraps everything in an object and passes them
 Config-driven UI: Website is driven by config received from backend
 not using keys (not acceptable) <<< index as keys <<<<<<<<<< unique id (best practice)
 
+Lect: 05
+Never keep hard-coded data in components folder
+Two types of exprt and import : Named-export and default export
+1. Named:   export const Variable;
+            import {Variable} from "path"
+    When we need to export multiple things
+
+2. Default: export default Variable
+            import Variable from "path"
+
+Can I do mix-export and imports ? 
+
+
+
 
