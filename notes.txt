@@ -1,7 +1,7 @@
 Lect: 2
 npm i -D parcel => parcel is getting installed as Dev dependency
 parcel has dependencies => its dependencies has their own dependencies => transitive dependencies
-dependency vs dev dependency ?
+dependency vs dev dependency : "dependencies" : Packages required by your application in production. "devDependencies" : Packages that are only needed for local development and testing.
 
 Lect: 3
 npm run start === npm start
@@ -16,7 +16,7 @@ JSX is transpiled before it reaches the JS engine -> done by Parcel using Babel
 JSX => converted to react.createElement by Babel=> React Element which is an Object => on rendering => HTML Element
 try to explore different attributes for JSX as compared to html
 putting one component inside other is called component composition
-React component is a JS function whish returns some JSX code.
+React component is a JS function which returns some JSX code.
 Instead of arrow function, we can also write normal fucntions, but we shall be using arrow.
 we can inject any JS code inside JSx using {}
 All three are same: 
@@ -59,16 +59,27 @@ Can I do mix-export and imports ?
 Using React, we want to sync the data and UI.
 React Hooks: Normal JS utility functions, written by facebook developers
 - useStae() : Super powerful state variables
-            : Whenever a state variable updates, React re-renders the component
+            : Whenever a state variable updates, React re-renders the component (or react triggers a reconciliation cycle)
+            : rendering => calling that component function again
+            : On re-rendering entire function is again executed
             : All three are same: 
                 const [listOfRestaurants, setListOfRestaurants] = useState(resList)
                 const arr = useState(resList)
                 const [listOfRestaurants, setListOfRestaurants] = arr;
                 const listOfRestaurants = arr[0];
                 const setListOfRestaurants = arr[1];
-- useEffect() : 
+- useEffect() : Runs when the compoenent has been rendered
 
 React uses React-Fiber(Reconciliatio) algorithm to easily maintain a virtual DOM(an object representation of actual DOM), finds the diff and then changes the actual DOM very efficiently.
 
+Lect: 06
+useEffect is called when that componenthas been rendered
+If we pass [] => useEffect is only called for the first render of that compoenent
+added cors plugin to handle cors issue => watch CORS video on youtube
+For better UI experence, we should use shimmer ui effect
+
+If isLoggedIn is declared with const, how can we still update its value?
+We're not changing the const variable, we're changing the value it points to via the setIsLoggedIn function.
+Implement lazy loading as user scrolls down
 
 

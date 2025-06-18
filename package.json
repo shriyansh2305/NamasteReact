@@ -18,13 +18,19 @@
   },
   "homepage": "https://github.com/shriyansh2305/NamasteReact#readme",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.15.2"
   },
   "browserslist": [
     "last 2 versions"
   ],
   "dependencies": {
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
-  }
+  },
+  "keywords": []
 }
