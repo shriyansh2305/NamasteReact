@@ -73,7 +73,7 @@ React Hooks: Normal JS utility functions, written by facebook developers
 React uses React-Fiber(Reconciliatio) algorithm to easily maintain a virtual DOM(an object representation of actual DOM), finds the diff and then changes the actual DOM very efficiently.
 
 Lect: 06
-useEffect is called when that componenthas been rendered
+useEffect is called when that component has been rendered
 If we pass [] => useEffect is only called for the first render of that compoenent
 added cors plugin to handle cors issue => watch CORS video on youtube
 For better UI experence, we should use shimmer ui effect
@@ -82,4 +82,51 @@ If isLoggedIn is declared with const, how can we still update its value?
 We're not changing the const variable, we're changing the value it points to via the setIsLoggedIn function.
 Implement lazy loading as user scrolls down
 
+Lect: 07
+useEffect Impt points: 
+    1. If no dependency array => useEffectis called on every render
+    2. If dependency array is empty ([]) => useEffectis called only on initial render
+    3. If dependency array is like [variable] => called every time the variable updates
+useState  impt points: 
+    1. Used to create local state varables inside a component
+    2. Always initialize useState at the top of component
+    3. Never use useState inside if-else, for-loop, functions
 
+
+We should not use anchor tag for redirecting in react as it reloads the entire page
+We should use Link, provided by react-router-dom
+If we use Link then, only that component is loaded.
+And that's why react is called as Single Page Apllication using client side routing
+
+Routing configuration (what will happen for a specific path) for the root-level app.
+create Configuration: const appRouter = createBrowserRouter([{}, {} ,{}])
+provide configuration   : RouterProvider is a compoenent which we'll render instead of the root -evel component (mostly app.js)
+                        : root.render(<RouterProvider router={appRouter} />)
+To handle error, react-router-dom provides us a hook called "useRouteError"
+On every other route: I want my header ot be there => we use children routes, with Outlet
+Outlet gets filled with the children according to the path
+Q. Can I add multiple and nested Outlets?
+We can navigate to new route without reloading the entire page: "Link"
+Link is a compoenent given by react-router-dom, which internally uses anchor(a) tag
+In the html, we will notice "a" tag, instead of Link.
+
+
+In web-applications, we have two types of routing: 
+
+1. Client side rotuting => all the compoenets are already loaded and no network call is made, n/w call is only amade when we fetch using api.
+
+2. Server side routing => make a netword call and that html page is coming from Server
+
+Dynamic routing : 
+
+path: "/restaurants/:resId": It means that, resId will be different and dynamic for different routes
+how to get this id in the compoenent? =. using hook "useParams"
+
+
+Note: 
+    setResInfo(jsonData.data);
+    // here its throwing undefined even after setting the value?
+    console.log("a", resInfo);
+    setResInfo(...) doesn't immediately change resInfo.
+    console.log(resInfo) right after it will still show the previous value.
+    Use useEffect to observe state updates:
