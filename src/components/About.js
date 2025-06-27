@@ -4,13 +4,13 @@ import React from "react";
 class About extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Parent Constructor");
+    // console.log("Parent Constructor");
   }
   componentDidMount() {
-    console.log("Parent Compoenent Mounted");
+    // console.log("Parent Compoenent Mounted");
   }
   render() {
-    console.log("Parent Render");
+    // console.log("Parent Render");
     return (
       <div>
         <h1>About Us(Class Component)</h1>
@@ -19,10 +19,7 @@ class About extends React.Component {
           name={"Shriyansh (class-based component)"}
           location={"Kolkata (class-based component)"}
         />
-        <UserClass
-          name={"Elon (class-based component2)"}
-          location={"Kolkata (class-based component2)"}
-        />
+        <User name={"Akshay"}/>
       </div>
     );
   }

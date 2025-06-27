@@ -87,6 +87,7 @@ useEffect Impt points:
     1. If no dependency array => useEffectis called on every render
     2. If dependency array is empty ([]) => useEffectis called only on initial render
     3. If dependency array is like [variable] => called every time the variable updates
+    4. return () => {}, to perform unmounting activities
 useState  impt points: 
     1. Used to create local state varables inside a component
     2. Always initialize useState at the top of component
@@ -179,6 +180,18 @@ And that's why we use componentDidMount for API call.
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 As DOM manipulation is costly operation, React finishes doing all tasks in virtual dom.
-And at the end, it updates the DOM and componenetDIdMount / componentDidUpdate is called.
+And at the end, it updates the DOM and componentDidMount / componentDidUpdate is called.
 For multiple children, the componentDidMount are batched for single DOM updation
 
+When updating inside the componentDidMount, calling API, react again re runs the render() and componentDidUpdate is called.
+When that compoenent is unmounted, the componentWillUnmount is called.
+
+DO NOT COMPAORE THE REACT'S LIFE CYCLE WITH FXNL COMPONENTS
+USEEFFECT IS NOT SAME AS componentDidMount
+
+When we are unmounting, we return a function inside useEffect to perform the cleanup activuty.
+
+HOMEWORK: 
+    1. why we wrote async componentDidMount() for API call?
+    2. why we ca't make the function inside useEffect as async?
+    3. counter increase and decrease using classBased approach
