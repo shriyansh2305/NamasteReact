@@ -130,3 +130,31 @@ Note:
     setResInfo(...) doesn't immediately change resInfo.
     console.log(resInfo) right after it will still show the previous value.
     Use useEffect to observe state updates:
+    useEffect(() => {
+        console.log("resInfo updated:", resInfo);
+        }, [resInfo]);
+
+Lect: 08
+
+Class Based Component: We need to extend React.Component class with our new class name, 
+use render method and return the same JSX which you could have returned in the functional component.
+Export the class, use the same way we are using normal functional component
+
+To pass variables in fxn based: we pass like var={} and receive inside the function as props object
+To pass variables in class based: We pass the same way, for receiving we use constructor, which does super(props), and we use variables like this.props.varName or destructure
+
+By calling super(props), you ensure that the parent class (React.Component) 
+performs its necessary initializations, 
+allowing your component to function correctly within the React framework. 
+This is crucial for accessing this.props and setting up the component’s 
+initial state based on the props.
+
+Handling state variables: 
+
+In fxnl based components, we use useState hook to handle them, but at the end: React maintains a single big objct to maintain all the state variables
+
+In class based: We use constructor for creating and managing state variables.
+
+this.state = {
+    one big object, which has all the state variables.
+}
