@@ -19,6 +19,10 @@ class About extends React.Component {
           name={"Shriyansh (class-based component)"}
           location={"Kolkata (class-based component)"}
         />
+        <UserClass
+          name={"Elon (class-based component2)"}
+          location={"Kolkata (class-based component2)"}
+        />
       </div>
     );
   }
@@ -37,3 +41,39 @@ class About extends React.Component {
 // };
 
 export default About;
+
+/*
+  - Parent Constructor
+  - Parent render
+
+    - child1 constructor
+    - child1 render
+    < DOM UPDATION >
+    - child1 componentDidMounted
+    
+    - child2 constructor
+    - child2 render
+    < DOM UPDATION >
+    - child2 componentDidMounted
+    
+  < DOM UPDATION >
+  - Parent componentDidMounted
+  */
+ /*
+ - Parent Constructor
+ - Parent render
+ 
+    - child1 constructor
+    - child1 render
+    
+    - child2 constructor
+    - child2 render
+ 
+ 
+    < DOM UPDATION - IN SINGLE BATCH >
+    - child1 componentDidMounted
+    - child2 componentDidMounted
+
+  - Parent componentDidMounted
+*/
+

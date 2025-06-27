@@ -176,5 +176,9 @@ Our approach:
 
 And that's why we use componentDidMount for API call.
 
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
+As DOM manipulation is costly operation, React finishes doing all tasks in virtual dom.
+And at the end, it updates the DOM and componenetDIdMount / componentDidUpdate is called.
+For multiple children, the componentDidMount are batched for single DOM updation
 
