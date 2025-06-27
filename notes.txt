@@ -23,7 +23,7 @@ All three are same:
     <Title />
     <Title></Title>
     {Title()}
-We can put react-element inside react-component, react-component inside another react-component, reacct-compoenent inside react-element using {}
+We can put react-element inside react-component, react-component inside another react-component, reacct-component inside react-element using {}
 JSX sanitizes the JS which we are trying to inject using {}, and hence prevents from Cross-Side Scripting Attack
 At the end of the day: 
     React is JS
@@ -68,13 +68,13 @@ React Hooks: Normal JS utility functions, written by facebook developers
                 const [listOfRestaurants, setListOfRestaurants] = arr;
                 const listOfRestaurants = arr[0];
                 const setListOfRestaurants = arr[1];
-- useEffect() : Runs when the compoenent has been rendered
+- useEffect() : Runs when the component has been rendered
 
 React uses React-Fiber(Reconciliatio) algorithm to easily maintain a virtual DOM(an object representation of actual DOM), finds the diff and then changes the actual DOM very efficiently.
 
 Lect: 06
 useEffect is called when that component has been rendered
-If we pass [] => useEffect is only called for the first render of that compoenent
+If we pass [] => useEffect is only called for the first render of that component
 added cors plugin to handle cors issue => watch CORS video on youtube
 For better UI experence, we should use shimmer ui effect
 
@@ -100,14 +100,14 @@ And that's why react is called as Single Page Apllication using client side rout
 
 Routing configuration (what will happen for a specific path) for the root-level app.
 create Configuration: const appRouter = createBrowserRouter([{}, {} ,{}])
-provide configuration   : RouterProvider is a compoenent which we'll render instead of the root -evel component (mostly app.js)
+provide configuration   : RouterProvider is a component which we'll render instead of the root -evel component (mostly app.js)
                         : root.render(<RouterProvider router={appRouter} />)
 To handle error, react-router-dom provides us a hook called "useRouteError"
 On every other route: I want my header ot be there => we use children routes, with Outlet
 Outlet gets filled with the children according to the path
 Q. Can I add multiple and nested Outlets?
 We can navigate to new route without reloading the entire page: "Link"
-Link is a compoenent given by react-router-dom, which internally uses anchor(a) tag
+Link is a component given by react-router-dom, which internally uses anchor(a) tag
 In the html, we will notice "a" tag, instead of Link.
 
 
@@ -120,7 +120,7 @@ In web-applications, we have two types of routing:
 Dynamic routing : 
 
 path: "/restaurants/:resId": It means that, resId will be different and dynamic for different routes
-how to get this id in the compoenent? =. using hook "useParams"
+how to get this id in the component? =. using hook "useParams"
 
 
 Note: 
@@ -160,3 +160,21 @@ this.state = {
 }
 NEVER UPDATE STATE VARIABLES DIRECTLY: this.state.count = this.state.count + 1;
 We use: this.setState({values to be updtaed}), and react will update the values provided to the set state, and won't touch the other state variables. And when the value changes, the component is re-rendered.
+
+Life Cycle of Class based component:
+    1. constructor
+    2. render()
+    3. At the end: componentDidMount()
+
+For parent-child relation: 
+    parent constructor, parent render(), child constructor, child render(), child componentDidMount, parent componentDidMount
+
+use of componentDidMount ? 
+Our approach: 
+    Loads => API -> render ❌
+    Loads -> Render -> API -> Render ✅ (Better UX) => we use useEffect in fxnl component
+
+And that's why we use componentDidMount for API call.
+
+
+
