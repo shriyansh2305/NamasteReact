@@ -158,3 +158,5 @@ In class based: We use constructor for creating and managing state variables.
 this.state = {
     one big object, which has all the state variables.
 }
+NEVER UPDATE STATE VARIABLES DIRECTLY: this.state.count = this.state.count + 1;
+We use: this.setState({values to be updtaed}), and react will update the values provided to the set state, and won't touch the other state variables. And when the value changes, the component is re-rendered.
