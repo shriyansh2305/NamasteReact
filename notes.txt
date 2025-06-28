@@ -195,3 +195,68 @@ HOMEWORK:
     1. why we wrote async componentDidMount() for API call?
     2. why we ca't make the function inside useEffect as async?
     3. counter increase and decrease using classBased approach
+
+SOME IMPT POINTS: 
+
+| **Class method**       | **Functional Hook equivalent**                |
+| ---------------------- | --------------------------------------------- |
+| `constructor`          | initial variable setup + `useState`           |
+| `render`               | the function body of the functional component |
+| `componentDidMount`    | `useEffect(() => { ... }, [])`                |
+| `componentDidUpdate`   | `useEffect(() => { ... }, [dependencies])`    |
+| `componentWillUnmount` | cleanup function inside `useEffect`           |
+
+Functional components do not have lifecycle methods, but instead:
+
+    The component body acts like the render
+    useEffect with [] = componentDidMount
+    useEffect with deps = componentDidUpdate
+    cleanup returned from useEffect = componentWillUnmount
+
+React’s functional components still go through:
+
+    mount
+    update
+    unmount
+    phases under the hood, hooks just give you a cleaner way to hook into those.
+
+[Function runs] --> [DOM paint] --> [useEffect runs]
+   |                    |               |
+   |                    |               +--> (side effects like fetch)
+   |                    |
+   |                    +--> (visible on the screen)
+   |
+   +--> (the function body is like render in classes)
+
+on update:
+[Function runs] --> [DOM paint] --> [useEffect runs (with changed deps)]
+
+
+Lect: 09
+
+SRP: Single Responsibility Principle should be maintained in the code. Each component should be responsible for only one task. It makes the code, Reusable, Maintainable and Testable.
+
+A hook is just a utility function.
+Now, RestaurantMenu has 2 tasks, fetching data and displaying on the UI.
+Now, we will try to write our custom hook for fetching data to make more modular.
+    In React, custom hooks don’t magically change timing — they execute the same way as the hooks you put inside a component. In other words:
+
+    ✅ If you use useEffect inside your custom hook, then your data-fetching code will still run after the render, just like it would if you had kept it inside the component.
+
+    ✅ If you use useLayoutEffect inside your custom hook, it will run synchronously after the DOM mutations but before the browser paints.
+
+    ✅ If you put the data-fetch directly during the hook body, outside of useEffect, it will run on every render, before painting (which is usually not recommended for data-fetching, since it would run too early and too often).
+On refresh, the default online status it takes in "true", its browser bug/feature.
+But without refresh, everything working fine.
+
+HOMEWORK: 
+    1. there is one more fetch block in Body to get the res cards. Write hook for that too.
+
+Bundler, bundles all the compoenents into one js file.
+But, if we have very large system, putting all of them into one file is not good.
+So, we can logically create different bundles(// Chunking/ Code Splitting/ Dynamic Bundling/ lazy Loading/ On-demand Loading/ dynamic import) for them depending on the app.
+Lazy Loading => initially grocery won't be loaded, when we go there then only it will be loaded.
+Here, we created a dummy grocery store, like instamart. And will try to create different bundles for them.
+
+We use lazy loading to split our system into different chunks. 
+We need to use Suspense otherwise the browser tries to load that page andwill get error as there is some time taking to load that bundle.

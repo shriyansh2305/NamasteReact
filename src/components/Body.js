@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -15,24 +16,34 @@ const Body = () => {
 
   const fetchData = async () => {
     // fetch is given by browser
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5753931&lng=88.47979029999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const jsonData = await data.json();
-    setListOfRestaurants(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setFilteredRestaurant(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    // console.log(
-    //   jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-    //     ?.restaurants
-    // );
+    try {
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5753931&lng=88.47979029999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      const jsonData = await data.json();
+      setListOfRestaurants(
+        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurant(
+        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      // console.log(
+      //   jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      //     ?.restaurants
+      // );
+    } catch {
+      console.log("Error while Fetching restaurant data!!");
+    }
   };
+  const onlineStatus = useOnlineStatus();
+  // console.log(onlineStatus);
   // conditional rendering
+
+  if (!onlineStatus)
+    return <h1>You're Offline, Please check your internet connection!!</h1>;
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -73,8 +84,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
-          
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

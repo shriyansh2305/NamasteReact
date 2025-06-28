@@ -3,18 +3,18 @@ const User = (props) => {
   const { name } = props;
   const [count, setCount] = useState(0);
   useEffect(() => {
-    console.log("useEffect Called");
+    // console.log("useEffect Called");
     
     const interval = setInterval(() => {
-      console.log("Namaste React OP from useEffect");
+      // console.log("Namaste React OP from useEffect");
     }, 1000);
     return () => {
-      console.log("useEffect return is called");
+      // console.log("useEffect return is called");
       
       clearInterval(interval)
     }
   }, []);
-  console.log("render");
+  // console.log("render");
   
   return (
     <div className="userCard">

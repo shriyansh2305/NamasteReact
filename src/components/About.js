@@ -15,11 +15,11 @@ class About extends React.Component {
       <div>
         <h1>About Us(Class Component)</h1>
         <h2>Here, We are learning React</h2>
-        <UserClass
+        {/* <UserClass
           name={"Shriyansh (class-based component)"}
           location={"Kolkata (class-based component)"}
-        />
-        <User name={"Akshay"}/>
+        /> */}
+        <User name={"Akshay"} />
       </div>
     );
   }
@@ -56,7 +56,7 @@ export default About;
   < DOM UPDATION >
   - Parent componentDidMounted
   */
- /*
+/*
  - Parent Constructor
  - Parent render
  
@@ -73,4 +73,3 @@ export default About;
 
   - Parent componentDidMounted
 */
-
