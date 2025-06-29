@@ -260,3 +260,13 @@ Here, we created a dummy grocery store, like instamart. And will try to create d
 
 We use lazy loading to split our system into different chunks. 
 We need to use Suspense otherwise the browser tries to load that page andwill get error as there is some time taking to load that bundle.
+
+Lect: 10
+
+Ways of writing CSS: 
+    1. naive css file
+    2. SASS and SCSS
+    3. Styled components
+    4. Material UI, Daisy UI, bootstrap, Chakra UI, ANT  Design, Tailwind CSS
+
+NOTE: Tailwind comes with an initial learning curve. Once practiced, it becomes very handy.
