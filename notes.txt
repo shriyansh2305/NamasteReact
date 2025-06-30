@@ -270,3 +270,68 @@ Ways of writing CSS:
     4. Material UI, Daisy UI, bootstrap, Chakra UI, ANT  Design, Tailwind CSS
 
 NOTE: Tailwind comes with an initial learning curve. Once practiced, it becomes very handy.
+
+Lect: 11
+
+Higher Order Components are functions, which takes a component as argument, enhances it and returns a new component(function).
+
+Just implemented the promoted for learning HOc, but that promoted is not coming in Swiggy's current API.
+Flow:
+    RestaurantCard expects props: { resData }
+
+    withPromotedLabel(RestaurantCard)
+        |
+        v
+    returns PromotedCard:
+        (props) => (
+            <div>
+            <label>Promoted</label>
+            <RestaurantCard {...props} />
+            </div>
+        )
+
+    then
+    <PromotedCard resData={restaurant} />
+        |
+        v
+    PromotedCard({ resData: restaurant })
+        |
+        v
+    renders
+    <div>
+        <label>Promoted</label>
+        <RestaurantCard resData={restaurant} />
+    </div>
+
+Why for Reataurant we used Destructuring and here spread?
+Can we use destructuring logic here also?
+
+Here, you know for sure that props will look like:
+{ resData: restaurant }
+so you can directly destructure: ({ resData })
+
+<Component {...props} />
+👉 Here you do not know what props the child needs.
+    RestaurantCard might want resData
+    another wrapped card might want somethingElse
+    another one might want foo, bar, etc.
+
+✅ A HOC should never care about what props the child expects.
+It should just pass through everything untouched.
+
+Can you use destructuring inside the HOC?
+    Technically yes — but you usually don’t, because:
+    HOCs are meant to be generic
+    They don’t want to know about specific props
+
+Golden rule
+    ✅ Components: destructure props you expect
+    ✅ HOCs: spread props to forward everything
+
+Analogy
+    Think of it like:
+        a component: is the final chef cooking → so it unpacks exactly what ingredients it needs
+        a HOC: is a delivery van → it just passes the entire crate without unpacking
+
+React APP = Data Layer(states, local variables, props, js cdes..) + UI Layer
+UI layer is powered by the data layer. We should be very good at managing the data

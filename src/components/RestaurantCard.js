@@ -6,6 +6,12 @@ const RestaurantCard = (props) => {
     resData?.info;
   return (
     <div className="p-4 m-4 w-72 bg-gray-100 rounded-lg hover:bg-gray-200">
+      {/* Conditionally render label */}
+      {/* {avgRating >= 4.5 && (
+        <span className="absolute bg-yellow-400 text-black p-1 rounded">
+          Promoted
+        </span>
+      )} */}
       <img
         className="rounded-lg"
         src={CDN_URL + cloudinaryImageId}
@@ -18,6 +24,20 @@ const RestaurantCard = (props) => {
       <h4>{sla.slaString}</h4>
     </div>
   );
+};
+
+// Highere Order Component
+
+// input => ReataurantCard :output=> ReataurantCardPromoted
+export const withPromotedLabel = (ReataurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white p-1 rounded-lg">Promoted</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

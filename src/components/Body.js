@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -7,7 +7,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+  console.log(listOfRestaurants);
   useEffect(() => {
     // It will run after the component has been rendered
     // console.log("body rendered");
@@ -84,14 +85,22 @@ const Body = () => {
         </div>
       </div>
       <div className="flex flex-wrap">
-        {filteredRestaurant.map((restaurant) => (
-          <Link
-            key={restaurant.info.id}
-            to={"/restaurants/" + restaurant.info.id}
-          >
-            <RestaurantCard resData={restaurant} />
-          </Link>
-        ))}
+        {filteredRestaurant.map((restaurant) => {
+          
+          return (
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
+            >
+              {/* If the restaurant is promoted, then add a label to it. */}
+              {restaurant.info.avgRating >= 4.5 ? (
+                <PromotedRestaurantCard resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
