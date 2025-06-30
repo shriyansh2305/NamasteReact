@@ -335,3 +335,8 @@ Analogy
 
 React APP = Data Layer(states, local variables, props, js cdes..) + UI Layer
 UI layer is powered by the data layer. We should be very good at managing the data
+
+When, we have putt the power of show/collapse to each category, each have their own state and no one cares about when other has shown, others should be collaped.
+But here, every state is local => to achieve this, we need to lift the state to parent.
+
+Controlled Vs Uncontrolled Coponents: When parent has the power to manage the state of children called controlled components
