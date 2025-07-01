@@ -21,10 +21,10 @@ class UserClass extends React.Component {
     });
     // console.log("Component Did Mount");
     // This will keep on calling even after unmounting, a cons of SPA
-    this.interval = setInterval(() => {
-        // console.log("Namaste React OP");
+    // this.interval = setInterval(() => {
+    //     console.log("Namaste React OP");
         
-    }, 1000);
+    // }, 1000);
   }
 
   componentDidUpdate() {
@@ -35,7 +35,7 @@ class UserClass extends React.Component {
   componentWillUnmount() {
     // console.log("Component will unmount");
     // Need to clear the interval after unmount
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
   }
 
   render() {

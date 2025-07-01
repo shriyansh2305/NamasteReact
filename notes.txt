@@ -340,3 +340,25 @@ When, we have putt the power of show/collapse to each category, each have their 
 But here, every state is local => to achieve this, we need to lift the state to parent.
 
 Controlled Vs Uncontrolled Coponents: When parent has the power to manage the state of children called controlled components
+
+React has one-way data flow, from parent->child->grand-child....
+When we have nesting and we need to pass data from parent to nested grand grand child, then
+we need to pass the data through each child even though its not required by them. 
+This is called as Props Drilling.
+
+If there is some data which can be needed anywhere in our app (Logged In User Information, theme, ...),
+We use context using which data can be accessed anywhere. It acts as central store.
+We can create multiple contexts.
+To create: createContext({})
+To consume: useContext(context_name) or <UserContext.Consumer>{({loggedInUser}) => <h1 className="text-xl font-bold">{loggedInUser}</h1>}</UserContext.Consumer>
+To Update: We user Provider. <UserContext.Provider value={}>
+and we provide the new value.
+We wrap the portion of app we want to provide, If we wrap entire app, then the new data will be present 
+in the entire app. If we just provide to header, new data will be updated in just header.
+
+NOTE: 
+    We shall not put all data inside context.
+    Use only for the data which is required at multiple components
+
+
+HOMEWORK: Ways to avoid Props Drillling?

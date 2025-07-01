@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,17 +8,33 @@ import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Shimmer from "./components/Shimmer.js";
+import UserContext from "./utils/UserContext.js";
 // import Grocery from "./components/Grocery.js";
 
 // Chunking/ Code Splitting/ Dynamic Bundling/ lazy Loading/ On-demand Loading/ dynamic import
 const Grocery = lazy(() => import("./components/Grocery.js"));
 const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    // Make an API call and send username and password
+    const data = {
+      name: "Elon Musk",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    // Default Value
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      {/* Elon Musk */}
+      <div className="app">
+        <UserContext.Provider value={{ loggedInUser: "Bagar Billa" }}>
+          {/* Bagar Billa */}
+          <Header />
+        </UserContext.Provider>
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

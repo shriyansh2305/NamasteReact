@@ -8,7 +8,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
-  console.log(listOfRestaurants);
+  // console.log(listOfRestaurants);
   useEffect(() => {
     // It will run after the component has been rendered
     // console.log("body rendered");

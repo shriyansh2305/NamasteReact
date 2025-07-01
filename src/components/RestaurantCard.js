@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } =
     resData?.info;
+  const {loggedInUser} = useContext(UserContext);
   return (
     <div className="p-4 m-4 w-72 bg-gray-100 rounded-lg hover:bg-gray-200">
       {/* Conditionally render label */}
@@ -22,6 +25,7 @@ const RestaurantCard = (props) => {
       <h4>{avgRating} stars</h4>
       <h4>{costForTwo}</h4>
       <h4>{sla.slaString}</h4>
+      <h4 className="font-bold text-xl">USER: {loggedInUser}</h4>
     </div>
   );
 };
