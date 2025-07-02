@@ -271,7 +271,7 @@ Ways of writing CSS:
 
 NOTE: Tailwind comes with an initial learning curve. Once practiced, it becomes very handy.
 
-Lect: 11
+Lect: 11(Data is the new Oil)
 
 Higher Order Components are functions, which takes a component as argument, enhances it and returns a new component(function).
 
@@ -356,9 +356,130 @@ and we provide the new value.
 We wrap the portion of app we want to provide, If we wrap entire app, then the new data will be present 
 in the entire app. If we just provide to header, new data will be updated in just header.
 
+to update the loggedIn User from anywhere in the app, we can also pass the set function with Provider.
+The value provided in the Provider, overrides the default. And anywhere we can use the set function to update the value and it will be reflected everywhere it is being used.
+Even though the components are loaded lazy, they will update their value also once loaded.
+
+
+
 NOTE: 
     We shall not put all data inside context.
     Use only for the data which is required at multiple components
 
 
-HOMEWORK: Ways to avoid Props Drillling?
+HOMEWORK: 
+    Ways to avoid Props Drillling?
+        Context API
+        State Management Libraries
+        Higher-Order Components (HOCs)
+        Render Props
+    What if we have multiple contexts, how do we wrap then?
+        React Context: Important Points (copy-paste friendly)
+        Context helps avoid props drilling by sharing values globally.
+        You can use multiple contexts by nesting their providers.
+        The order of nesting usually does not matter if contexts are independent.
+        If one context’s value depends on another context, then you must nest them in the correct order so dependencies are satisfied.
+        You can group many providers in a separate AppProviders component to keep code clean.
+        Access each context independently with useContext(SomeContext).
+        Context is best for global, rarely changing data (like theme, user, language) — avoid using it for rapidly changing data (like every keystroke).
+        ⚡️ Simple rule of thumb:
+            → independent contexts → any nesting order is fine
+            → dependent contexts → mind the nesting order
+        const AppProviders = ({ children }) => {
+            return (
+                <ThemeContext.Provider value={"dark"}>
+                <UserContext.Provider value={{ name: "Alice" }}>
+                    <LanguageContext.Provider value={"en"}>
+                    {children}
+                    </LanguageContext.Provider>
+                </UserContext.Provider>
+                </ThemeContext.Provider>
+            );
+        };
+
+        // Then use AppProviders in App
+        const App = () => (
+        <AppProviders>
+            <Dashboard />
+        </AppProviders>
+        );
+
+    the children here is a special React prop.
+
+    What is children?
+        Every React component can receive a children prop automatically.
+        It represents whatever you wrap inside that component in JSX.
+        <AppProviders>
+            <Dashboard />
+        </AppProviders>
+        Here, children will be <Dashboard />.
+
+        So inside AppProviders, putting {children} means:
+        ✅ “Render whatever is wrapped inside me inside my nested Providers.”
+    Doing e.target.value is setting the value everytime, Isn't that re-rendering happening evrytime affects the performance of the app?
+        Controlled components re-render on each change by design, but React’s virtual DOM handles that quite efficiently.
+        Unless you’re doing something very heavy in the render, you do not need to worry.
+        React handles small inputs just fine with setState
+        If your form is very large, try:
+
+                split states
+                React.memo
+                useReducer
+                debouncing
+
+Lect: 12
+
+Redux is not mandatory. For small and mid-sized apps we can use Context. 
+There are also other libraries, Zustand. (Explore it.)
+As the size of app increases and we have a lo of data flow within our components, we should use it.
+NOTE: React and Redux are not same. They both are separate libraries.
+Redux Dev Tools help us dubugging Redux easily.
+
+We can think Redux store as a big Object stored at central global location which can be accessed by any component.
+
+We make logical separation of the entire store based on our requirements, called as slice(CartSlice, LoggedINUser Slice, ThemeSlice, ...)
+Write data to store: We dispatch an action, which calls a function(known as Reducer) and that function does the updatiom in that Slice of Redux store.
+Read data from Store:  We use Selector to read data(subscribing to the store) from store and that selector will provide the data to the component.
+
+react-redux acts as a bridge b/w redux and our app.
+
+createSlice({name, initialState: {}, reducers{actions object}}), takes a configuration like shown. 
+The initialState is an object which holds the initial state of our store.
+reducers is an obkject, which has action items and the reducer functions associated to each action.
+Reducer function has access to (state, action)
+We finally return the reducer and actions from the slice returned by createSlice()
+While using selector, make sure you're subscribing to right portion of the store otherwise it is a big performance loss.
+    const cartItems = useSelector((store) => store.cart.items);
+    //   const store = useSelector((store) => store);
+    //   const cartItems = store.cart.items;
+In appStore, we have "reducer" for entire big-store.
+In each Slice, we have small reducer functions => "reducers" and we are exporting those as single reducer.
+We exported it as a default.
+Default imports can be named anything you like when importing.
+NOTE: 
+    default export → import AnythingYouWant from '...'
+    named export → import { ExactName } from '...'
+    named export (alias) → import { ExactName as NewName } from '...'
+    You can only have one default export per file, but multiple named exports.
+In older version of the redux, we Can't Mutate State and returning new state was mandatory, nut in RTK, we have to mutate state or return a new state.
+But internally, RTK is doing the same vanilla Redux things, using Immer library.
+
+clearCart: (state) => {
+            
+            state.items.length = 0;
+            or
+            return {items: []};
+            or
+            state.items = []
+        }
+originalState: ["pizza]
+state(which is a local variable) is also referencing to ["pizza"]
+state = [] or { items: []} !=> originalState = []
+originalState is still ["pizza"]
+
+Extension: Redux DevTools
+
+Homework: 
+        Read about RTK Query
+        The data stored in local var or Context or RTK, where its stored?
+        Which memory it utilizes?

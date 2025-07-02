@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import Cart from "./components/Cart.js";
 // import About from "./components/About";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
@@ -9,6 +10,8 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Shimmer from "./components/Shimmer.js";
 import UserContext from "./utils/UserContext.js";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore.js";
 // import Grocery from "./components/Grocery.js";
 
 // Chunking/ Code Splitting/ Dynamic Bundling/ lazy Loading/ On-demand Loading/ dynamic import
@@ -24,17 +27,14 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
-    // Default Value
-    <UserContext.Provider value={{ loggedInUser: userName }}>
-      {/* Elon Musk */}
+    <Provider store={appStore}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="app">
-        <UserContext.Provider value={{ loggedInUser: "Bagar Billa" }}>
-          {/* Bagar Billa */}
-          <Header />
-        </UserContext.Provider>
+        <Header />
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -65,6 +65,12 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<Shimmer />}>
             <Grocery />
           </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Cart/>
         ),
       },
       {

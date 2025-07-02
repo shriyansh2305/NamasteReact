@@ -1,13 +1,15 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+  const {loggedInUser, setUserName} = useContext(UserContext);
   // console.log(listOfRestaurants);
   useEffect(() => {
     // It will run after the component has been rendered
@@ -70,6 +72,7 @@ const Body = () => {
             Search
           </button>
         </div>
+        
         <div className="p-4 m-4">
           <button
             className="px-4 mx-4 bg-gray-100 border-2 border-solid rounded-lg"
@@ -82,6 +85,10 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="p-4 m-4">
+          <label>UserName: </label>
+          <input type="text" className="border-2 rounded-lg" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
         </div>
       </div>
       <div className="flex flex-wrap">

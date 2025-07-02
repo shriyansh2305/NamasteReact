@@ -1,0 +1,80 @@
+🟦 Level 1: Fundamentals
+✅ 1. Build a Counter with Increment and Decrement buttons
+✅ 2. Create a To-Do list with Add / Remove / Complete features
+✅ 3. Build a Form with controlled inputs and basic validation
+✅ 4. Toggle visibility of a text section
+✅ 5. Pass data from Parent to Child (props)
+✅ 6. Pass data from Child to Parent using callbacks
+✅ 7. Use conditional rendering (ternary / logical &&)
+✅ 8. Create a reusable Button component
+
+🟩 Level 2: Intermediate State & Effects
+✅ 9. Build a Timer with Start, Stop, and Reset
+✅ 10. Create a Shopping Cart with quantity and total price calculation
+✅ 11. Fetch data from a fake API using useEffect
+✅ 12. Build a Pagination component
+✅ 13. Build a Search box with filtering results
+✅ 14. Use multiple useState hooks in a single component
+✅ 15. Lift state up between sibling components
+✅ 16. Dynamically render a list with keys
+✅ 17. Apply CSS styling via inline styles and CSS modules
+
+🟨 Level 3: Routing & Context
+✅ 18. Create a multi-page app using react-router-dom
+✅ 19. Implement dynamic routes with URL params
+✅ 20. Add protected routes for login-guard
+✅ 21. Create a ThemeContext to switch light/dark mode
+✅ 22. Share user data with UserContext
+✅ 23. Combine multiple Context Providers
+✅ 24. Use the Outlet for nested routes
+✅ 25. Navigate programmatically
+
+🟧 Level 4: Hooks Patterns
+✅ 26. Write a custom hook for toggling state
+✅ 27. Write a custom hook for data fetching
+✅ 28. Replace multiple states with useReducer
+✅ 29. Use useMemo to optimize expensive calculations
+✅ 30. Use useCallback to memoize functions
+✅ 31. Compose multiple hooks together
+✅ 32. Explain why dependency arrays are important
+✅ 33. Handle cleanup in useEffect
+
+🟥 Level 5: Advanced Patterns
+✅ 34. Implement Render Props
+✅ 35. Implement a Higher Order Component (HOC)
+✅ 36. Use compound components (e.g., Accordion)
+✅ 37. Implement lazy loading with React.lazy and Suspense
+✅ 38. Code-split routes dynamically
+✅ 39. Integrate Error Boundaries
+✅ 40. Optimize a large list with react-window
+
+🟪 Level 6: Performance & Testing
+✅ 41. Use React.memo to prevent unnecessary renders
+✅ 42. Debounce input for live search
+✅ 43. Write unit tests with Jest
+✅ 44. Write component tests with React Testing Library
+✅ 45. Mock API requests in tests
+✅ 46. Test a Context Provider
+✅ 47. Profile your app with React DevTools
+✅ 48. Optimize re-renders with key props
+
+🟫 Level 7: System Design & Architecture
+✅ 49. Design a folder structure for a scalable React app
+✅ 50. Discuss tradeoffs between Context vs. Redux
+✅ 51. Build a reusable Modal system
+✅ 52. Implement feature flags (enable/disable features)
+✅ 53. Explain how to handle authentication flow
+✅ 54. Integrate third-party libraries cleanly
+✅ 55. Add TypeScript to a React project
+
+🚀 Pro Tip:
+
+Work on one problem per day, just like LeetCode
+
+Timebox: 30–45 minutes
+
+Write an explanation after finishing
+
+Track what you learned
+
+https://reactpractice.dev/start-here/

@@ -37,3 +37,11 @@ Footer
   - Address
   - Contact
 */
+
+# Redux Toolkit
+  - Install @reduxjs/toolkit and react-redux
+  - Build our store
+  - connect our store to our app
+  - Create Slice(cartSlice)
+  - Dispatch(action)
+  - Read(Selector)
