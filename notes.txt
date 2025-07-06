@@ -483,3 +483,15 @@ Homework:
         Read about RTK Query
         The data stored in local var or Context or RTK, where its stored?
         Which memory it utilizes?
+        Id added same item twice, it gets added with the same id and throwing error. need to get fixed.
+
+Lect: 13 (Testing)
+
+    Libraries: React Testing Library and JEST 
+    Parcel has its internal config for babel, we have written babel config to use jest, they will have conflict now, so we need to add config for parcel to override babel's config.
+
+    JS DOM : We do not run tests on the browser, but when we need the html like browser, js dom provides us a virtual reality html.
+
+    Create. :   __test__ folder known as dunder tests
+            :   file.test.js or file.test.ts or file.spec.js or file.spec.ts
+    

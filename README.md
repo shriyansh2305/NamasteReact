@@ -45,3 +45,19 @@ Footer
   - Create Slice(cartSlice)
   - Dispatch(action)
   - Read(Selector)
+
+# Types of Testing (developer)
+  - Unit Testing : Testing React Component in Isolation
+  - Integration Testing : Components when interacting
+  - End to End Testing - e2e testing : As soon as user lands on the website to leaving the website
+
+# Setting up testing in our app
+  - Install React Testing Library
+  - Install JEST
+  - Installed Babel dependencies required using JEST with babel, (Getting Started, Using Babel)
+  - Configure Babel
+  - read: https://parceljs.org/languages/javascript/#babel
+  - configure parcel config file to disable default babel transpilation (Usage with other tools)
+  - JEST configuration (npm init jest@latest)
+  - Install JS DOM library (npm install --save-dev jest-environment-jsdom)
+  

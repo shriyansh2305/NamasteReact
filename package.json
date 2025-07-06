@@ -18,7 +18,14 @@
   },
   "homepage": "https://github.com/shriyansh2305/NamasteReact#readme",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "babel-jest": "^30.0.4",
     "buffer": "^6.0.3",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
     "parcel": "^2.15.2"
   },
   "browserslist": [
