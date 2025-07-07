@@ -496,3 +496,8 @@ Lect: 13 (Testing)
             :   file.test.js or file.test.ts or file.spec.js or file.spec.ts
     
     We do: render() -> Query -> assert
+
+    We can use describe("description", () => {}) to group tests.
+    We can also use "it", in place of "test". "it" is an alias for "test".
+    Reason : it("should use .....", ()=> {});
+    
