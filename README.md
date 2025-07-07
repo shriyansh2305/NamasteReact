@@ -60,4 +60,6 @@ Footer
   - configure parcel config file to disable default babel transpilation (Usage with other tools)
   - JEST configuration (npm init jest@latest)
   - Install JS DOM library (npm install --save-dev jest-environment-jsdom)
-  
+  - Install @babel/preset-react (to make JSX work in the test cases)
+  - Include @babel/preset-react inside the babel config
+  - Install @testing-library/jest-dom (npm i -D @testing-library/jest-dom)

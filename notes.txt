@@ -495,3 +495,4 @@ Lect: 13 (Testing)
     Create. :   __test__ folder known as dunder tests
             :   file.test.js or file.test.ts or file.spec.js or file.spec.ts
     
+    We do: render() -> Query -> assert
