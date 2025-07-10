@@ -29,7 +29,8 @@ describe("Contact Us Page Test Case", () => {
     render(<Contact />);
     // Querying
     const inputBoxes = screen.getAllByRole("textbox");
-    console.log(inputBoxes.length);
-    expect(inputBoxes.length).not.toBe(3);
+    // console.log(inputBoxes.length);
+    // expect(inputBoxes.length).not.toBe(2);
+    expect(inputBoxes.length).toBe(2);
   });
 });
