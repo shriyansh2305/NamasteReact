@@ -54,6 +54,7 @@ const Body = () => {
       <div className="flex items-center">
         <div className="p-4 m-4">
           <input
+            data-testid="searchInput"
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -78,7 +79,7 @@ const Body = () => {
             className="px-4 mx-4 bg-gray-100 border-2 border-solid rounded-lg"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (res) => res.info.avgRating > 4.5
+                (res) => res.info.avgRating > 4.3
               );
               setFilteredRestaurant(filteredList);
             }}
