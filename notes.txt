@@ -500,4 +500,21 @@ Lect: 13 (Testing)
     We can use describe("description", () => {}) to group tests.
     We can also use "it", in place of "test". "it" is an alias for "test".
     Reason : it("should use .....", ()=> {});
+
+    We can import json with any name, its default export of json.
     
+we can use fireEvent to file an event while testing
+
+NOTE: "watch-test": "jest --watch", to have tests running.
+
+Integration: 
+    Making API call: We try to replicate the API call in local by resolving like how it's actually resolved.
+    The tests do not run in actual network, we run in local.
+    jest.fun() gives us a mock function to mimic the fetch of real-time browser call.
+
+    We can render multiple components to handle the working model and testing the flow.
+    Wherever needed, we should provide BrowserRouter, appStore to the compoenents.
+
+
+As of Now, we have written every possible test for adding to cart in a single test, make separate tests for them.
+

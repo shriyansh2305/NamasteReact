@@ -10,7 +10,7 @@ const RestaurantCard = (props) => {
     resData?.info;
   const {loggedInUser} = useContext(UserContext);
   return (
-    <div className="p-4 m-4 w-72 bg-gray-100 rounded-lg hover:bg-gray-200">
+    <div data-testid="resCard" className="p-4 m-4 w-72 bg-gray-100 rounded-lg hover:bg-gray-200">
       {/* Conditionally render label */}
       {/* {avgRating >= 4.5 && (
         <span className="absolute bg-yellow-400 text-black p-1 rounded">
